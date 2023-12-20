@@ -1,0 +1,27 @@
+<h1>TP06 de Hugo</h1>
+<br>
+<br>
+<br>
+<label for="login">login (hugo) : </label><input [(ngModel)]="login" /><br />
+<label for="password">password (gohu) : </label
+><input [(ngModel)]="password" type="password" /><br />
+<br />
+<button (click)="connexion()">Connexion</button>
+
+<br>
+<br>
+<br>
+<hr />
+<div *ngIf="cnx">
+  Bonjour {{ nom }} - {{ prenom }}
+
+  <h2>Catalogue produits</h2>
+  <label for="argsSrch">Argument recherche : </label><input [(ngModel)]="argsSrch" (keyup)="search()" /><br /><br /><br />
+
+  <div *ngIf="produits$ | async as produits">
+    <div *ngFor="let p of produits">
+      <div>{{ p.ref }} - {{ p.titre }} - {{ p.prix }} €</div>
+    </div>
+  </div>
+
+</div>
